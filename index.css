@@ -3,6 +3,11 @@
   cursor: auto;
 }
 
+body{
+  font-family: sans-serif;
+}
+
+
 header {
   position: fixed; /* ここに注目! */
   top: 0;
