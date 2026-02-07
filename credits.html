@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>クレジット | COLAVOICE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+
+<body>
+
+
+<div id="header"></div>
+
+<main class="content">
+<section>
+  <div class="page-title">
+    <h2>CREDITS</h2>
+    <p class="page-sub">With Thanks to Everyone Involved!</p>
+  </div>
+
+<section>
+  <h3>制作関係者</h3>
+  <p>
+    本音源および本サイトは、主に個人制作として開発されています。
+  </p>
+
+  <p><br>
+    ■ 制作<br>
+    Cracksy（音声生成・キャラクター設計・サイト制作）<br><br>
+
+    ■ キャラクターデザイン<br>
+    Ria（立ち絵制作）<br><br>
+
+    ■ テスト・フィードバック<br>
+    一部友人・知人（匿名）<br><br>
+
+    ■ 開発・実行環境<br>
+    Google Colab / Chromebook
+  </p>
+
+  <p><br>
+  <hr class="separator">
+  </p>
+
+  <!-- REFERENCE -->
+  <h3>参考資料</h3>
+  <p>
+    音源の制作にあたり、以下の技術・資料を参考にしています。
+  </p>
+
+  <p><br>
+    ■ 使用技術・ライブラリ<br>
+    Python / NumPy / SciPy<br>
+    矩形波・ノイズ波形による音声合成手法<br><br>
+
+    ■ 参考サイト・動画<br>
+    <br>
+    <br>
+    <br><br>
+
+    ■ 実行環境について<br>
+    Google Colab は、個人利用の開発環境として使用しています。<br>
+    本音源および本サイトは Google 公式とは一切関係ありません。
+  </p>
+
+</section>
+
+</section>
+</main>
+
+<footer class="footer">
+  <p>© Cracksy</p>
+</footer>
+
+<script>
+fetch("header.html")
+  .then(r => r.text())
+  .then(data => {
+    document.querySelector("#header").innerHTML = data;
+
+    // ★ここに移動
+    const btn = document.querySelector('.menu-btn');
+    const menu = document.querySelector('.menu');
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('show');
+    });
+
+    menu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+      menu.classList.remove('show');
+    });
+  });
+</script>
+</script>
+
+</body>
+</html>

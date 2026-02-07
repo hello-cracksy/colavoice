@@ -1,0 +1,374 @@
+* {
+  margin: 0;
+  cursor: auto;
+}
+
+header {
+  position: fixed; /* ここに注目! */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 70px;
+  color: white;
+  background-color: black;
+  z-index: 1000;
+}
+
+main {
+  padding: 90px 16px 40px;
+  margin-top: 70px;
+}
+
+.content {
+  max-width: 960px;   /* ← 右が空かない */
+  margin: 0 auto;     /* 中央寄せ */
+  line-height: 1.9;
+  font-size: 15px;
+}
+.nav {
+  display: flex;
+  align-items: center;       /* 縦中央 */
+  justify-content: space-between; /* ← ここが重要 */  /* 横中央 */
+  height: 100%;              /* liの高さを継承 */
+  padding: 0 16px;  
+}
+
+.site-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-left:40px;
+  color:#FFFFFF;
+}
+
+.site-title .main {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+
+.site-title .main a{
+  cursor:pointer;
+  color: inherit;          /* 親（白）をそのまま使う */
+  text-decoration: none;   /* 下線を消す */
+}
+
+.site-title .main a:visited {
+  color: inherit;          /* 訪問済みでも色を変えない */
+}
+
+.site-title .sub {
+  font-size: 0.6rem;
+  opacity: 0.7;
+  letter-spacing:0.3em;
+  text-align: center;
+}
+
+
+.menu {
+  display: flex;     /* 横並び */
+  list-style: none;
+  font-size: 18px;
+  margin: 0;
+  padding: 20px 30px;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.menu li {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.menu li img {
+  display: block;
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.menu a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.menu a:hover {
+  color: #ffeb3b;
+}
+
+.menu-btn {
+  font-family: "JetBrains Mono", "Fira Code";
+  background: none;
+  border: none;
+  color:#FFFFFF;
+
+  pointer-events: none; 
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6em;  /* ← 左右に分かれる余白を確保 */
+}
+
+.menu-btn .var {
+  display:none;
+  font-size: 0.75em;
+  font-weight: bold;
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+  margin-right: 0.1em;
+}
+
+.menu-btn .op {
+  display:none;
+  font-weight: bold;
+  font-size: 2.5em;
+  cursor: pointer;
+  pointer-events: auto; 
+}
+
+
+.page-title {
+  margin-bottom: 2em;
+}
+
+.page-title h2 {
+  font-size: 28px;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.6em;
+}
+
+.page-sub {
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 0.2em;
+}
+
+.char-buttons {
+  display: flex;
+  gap: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  flex-wrap: wrap;    /* スマホで折り返す */
+}
+
+
+.char-btn {
+  font-size:25px;
+  padding: 0.4em 0.8em;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+  color: #000000;  /* 通常文字色 */
+  background: none; /* 背景なし */
+  border: none;     /* 枠もなし */
+  border-bottom: 2px solid transparent; /* 通常は見えない */
+  padding-bottom: 6px;                  /* 線との距離を確保 */
+  transition: border-color 0.2s;
+}
+
+
+
+.char-btn:hover {
+   /* ホバー時の色 */
+   background: #EFEFEF;
+}
+
+.char-btn.active {
+  border-bottom-color: currentColor;
+}
+
+.char-detail {
+  display: none;
+  margin-top: 2em;
+}
+
+/* 画像＋テキスト */
+.char-layout {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+/* 画像スペース */
+.char-image {
+  width: 220px;
+  min-width: 220px;
+  height: 300px;
+  background: #eaeaea;
+  border: 1px dashed #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #666;
+}
+.char-detail a {
+  display: inline-block;
+  margin-top: 1.5em;
+  padding: 10px 18px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.char-detail a:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* テキスト */
+.char-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* プロフィール枠 */
+.char-text > p:first-child {
+  background: #f5f5f5;
+  padding: 12px 14px;
+  margin-bottom: 1.4em;
+}
+
+.reading {
+  font-size: 0.8em;
+  color: #666;
+  margin-left: 4px;
+}
+
+.char-btn[data-target="itsuki"]{
+  opacity:0.6;
+}
+.char-btn[data-target="pico"].active {
+  color: #009A5D;
+}
+
+.char-btn[data-target="ato"].active {
+  color: #93b000;
+}
+
+.image-center {
+  text-align: center;
+  margin-top: 10em;
+  margin-bottom: 2em;
+}
+@media (max-width: 800px) {
+  header {
+    height: 60px;
+  }
+    
+  .site-title{
+    margin-left:20px;
+  }
+  .site-title .main{
+    font-size: 1.0rem;
+  }
+  .site-title .sub{
+    display:none;
+  }
+    
+  .menu {
+    display: none;
+  }
+
+  .menu-btn{
+    display: flex;
+  }
+  .menu-btn .var{
+    display: flex;
+  }
+
+  .menu-btn .op{
+    display: block;
+  }
+  .menu.show {
+    display: flex;           /* 縦並びにする場合 */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;               /* ヘッダー下に表示 */
+    right: 12px;
+    background: #000;
+    padding: 10px 16px;
+    border-radius: 4px;
+    z-index: 1001;
+  }
+
+  .menu.show li {
+    margin: 8px 0;
+  }
+
+  main{
+    padding: 70px 12px 32px;
+  }
+
+  .content {
+    font-size: 14px;
+  }
+
+  .char-layout {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .char-image {
+    width: 100%;
+    min-width: 0;
+    height: 240px;
+  }
+
+  .char-btn {
+    font-size: 18px;
+  }
+}
+
+.separator {
+  border: none;
+  border-top: 1px dashed #aaa;
+  margin: 40px 0;
+}
+
+h3 {
+  display: inline-block;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  border-bottom:1px solid #000;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+/* .example3{
+    background: linear-gradient(
+        to right,
+        #e60000,
+        #f39800,
+        #fff100,
+        #009944,
+        #0068b7,
+        #1d2088,
+        #920783,
+        #e60000
+    );
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 100%;
+    font-weight: bold;
+    display: inline-block;
+
+    animation: example3 3s linear infinite;
+}
+
+@keyframes example3{
+    100% {
+        background-position: 200% 50%;
+    }
+} */
+

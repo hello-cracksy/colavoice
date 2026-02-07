@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>キャラクター | COLAVOICE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+
+<body>
+
+
+<div id="header"></div>
+
+<main class="content">
+<section>
+  <div class="page-title">
+    <h2>CHARACTERS</h2>
+    <p class="page-sub">Cola Voice Caracter Database</p>
+  </div>
+
+  <!-- 選択ボタン -->
+  <div class="char-buttons">
+    <span class="char-btn" data-target="pico">八波ピコ</span>
+    <span class="char-btn" data-target="ato">八波アト</span>
+    <span class="char-btn" data-target="itsuki">近日公開?</span>
+  </div>
+
+  <!-- ピコ -->
+  <div class="char-detail" id="pico">
+    <div class="char-layout">
+      <div class="char-image">
+        image here
+      </div>
+      <div class="char-text">
+        <p>
+          名前：八波ピコ<span class="reading">Yanami Pico</span><br>
+          身長：◯px<br>
+          体重：◯MB<br>
+          誕生日：◯月◯日<br>
+          座右の銘：理性より好奇心<br>
+          音源タイプ：無生物・単独音<br>
+          制作環境：Google Colab（Chromebook）
+        </p>
+
+        <p><br>
+          scipyの矩形波から生成した母音と、<br>
+          numpyのノイズから生成した子音を結合して制作しました。<br>
+
+
+          <hr class="separator">
+
+          突如、コンピューター上に現れた少女。<br>
+          没になり放置されていたプログラムから、偶然生まれた存在。<br><br>
+
+          元のコードの特性で好奇心を何よりも優先で行動する。<br>
+          数値やメモリの上限、法の境界などあらゆる限界を越えたがるが、弟に制止されている。<br>
+          いつか次元の壁も越えて、画面の外に行きたいらしい。<br><br>
+        </p>
+
+        <a href="#">DOWNLOAD</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- アト -->
+  <div class="char-detail" id="ato">
+    <div class="char-layout">
+      <div class="char-image">
+        image here
+      </div>
+      <div class="char-text">
+        <p>
+          名前：八波アト<span class="reading">Yanami Ato</span><br>
+          身長：150cm<br>
+          体重：非公開<br>
+          誕生日：10月10日<br>
+          座右の銘：やる後悔よりやらない後悔<br>
+          音源タイプ：無生物・単独音<br>
+          制作環境：Google Colab（Chromebook）
+        </p>
+
+        <p><br>
+          新たな母音と、<br>
+          ピコのときに作った子音を再利用して制作しました。<br>
+
+          <hr class="separator">
+
+          突如、コンピューター上に現れた少年。<br>
+          没になり放置されていたプログラムから、偶然生まれた存在。<br><br>
+
+          元のコードの特性で基本は何もせず、メモリの奥で眠っている。<br>
+          大抵は姉の「例外」な行動で無理やり表に出されるが、内心少しだけそれを待っているらしい。<br><br>
+        </p>
+
+        <a href="#">DOWNLOAD</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 作成中 -->
+  <div class="char-detail" id="itsuki">
+    <div class="char-layout">
+      <div class="char-image">
+        Coming soon?
+      </div>
+      <div class="char-text">
+          Coming soon?
+      </div>
+    </div>
+  </div>
+
+</section>
+</main>
+
+<footer class="footer">
+  <p>© Cracksy</p>
+</footer>
+
+<script>
+
+fetch("header.html")
+  .then(r => r.text())
+  .then(data => {
+    document.querySelector("#header").innerHTML = data;
+
+    // ★ここに移動
+    const btn = document.querySelector('.menu-btn');
+    const menu = document.querySelector('.menu');
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('show');
+    });
+
+    menu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+      menu.classList.remove('show');
+    });
+  });
+</script>
+<script>
+const buttons = document.querySelectorAll(".char-btn");
+const details = document.querySelectorAll(".char-detail");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.dataset.target;
+
+    details.forEach(d => d.style.display = "none");
+    document.getElementById(targetId).style.display = "block";
+
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+
+document.getElementById("pico").style.display = "block";
+buttons[0].classList.add("active");
+</script>
+
+</body>
+</html>

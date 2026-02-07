@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>あとがき | COLAVOICE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="images/favicon.ico">
+</head>
+<body>
+
+<div id="header"></div>
+
+<main class="content">
+ここはあとがきです。<br>
+よくここにたどり着きましたね。<br>
+一応わかりにくいようにしたのですが。<br>
+…まさかデベロッパーツールなんて使ってないでしょうね？<br><br>
+
+はじめまして、Cracksyです。<br>
+趣味で合成音声や音楽関係のライブラリを作っています。<br><br>
+
+前置きはこのくらいにして、自分のサイトって自由でいいですね。<br>
+サイト作成なんて久しぶりにしました。<br>
+え？全部自分でやったのかって？<br>
+ま、まさかchatGPT先生の力を借りたりなんて…してないですよ？<br>
+というか、ただの音源配布にここまで作り込む必要があったんでしょうか。<br>
+まあ、誰もそんなに見ないでしょうし、好きに書いちゃいます。<br><br>
+
+合成音声を作った理由は単純です。<br>
+尊敬している人が作曲していたので、憧れて自分も音楽に関わりたくなっただけです。<br><br>
+
+作曲やMADとか作れたら良かったのですが、音楽が苦手な私には結構厳しかったのです。<br>
+とはいえ、プログラミングなら音楽の基盤や声を作れると思い、制作を開始しました。<br>
+母音の微調整とか、子音の波形再現は地獄のような、というか地獄で、<br>
+何回やり直しで発狂したか覚えていません。<br>
+今思えば良い思い出…いや、やっぱり地獄でした。<br>
+日常生活に普通に支障がでました。<br>
+皆さんは勢いで音源作成とかやめましょうね。<br><br>
+
+ここまで読んでくれてありがとうございます。<br>
+ここの音源たちは、気が向いたときに使ってもらえればそれで十分です。<br>
+作った本人としては、「ちゃんと存在している」だけで満足しています。<br>
+それでは、良い合成音声ライフを！<br><br>
+
+— Cracksy<br><br>
+
+<!-- 追記<br>
+ピコとアトはPythonのtryとexceptをテーマにしています。<br>
+没になったプログラムも実在します。<br>
+Pythonでtryとexceptを使ったプログラムは少ないので、<br>
+分かる人には分かるでしょう。<br><br> -->
+
+<div class="image-center">
+  <img src="images/pico_smile.jpg" alt="Best Pico Smile Picture" title="ピコの笑顔" width=100% height="auto">
+  <span>Riaさんが書いてくれました。可愛い！</span><br>
+</div>
+</main>
+
+<script>
+fetch("header.html")
+  .then(r => r.text())
+  .then(data => {
+    document.querySelector("#header").innerHTML = data;
+
+    // ★ここに移動
+    const btn = document.querySelector('.menu-btn');
+    const menu = document.querySelector('.menu');
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.classList.toggle('show');
+    });
+
+    menu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+      menu.classList.remove('show');
+    });
+  });
+</script>
+
+
+</body>
+
+</html>
