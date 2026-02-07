@@ -3,10 +3,13 @@
   cursor: auto;
 }
 
-body{
-  font-family: sans-serif;
+body {
+  font-family:
+    "Noto Sans JP",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
 }
-
 
 header {
   position: fixed; /* ここに注目! */
