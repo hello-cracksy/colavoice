@@ -69,36 +69,12 @@
 </section>
 
 </section>
+
+<div id="footer"></div>
 </main>
 
-<footer class="footer">
-  <p>© Cracksy</p>
-</footer>
 
-<script>
-fetch("header.html")
-  .then(r => r.text())
-  .then(data => {
-    document.querySelector("#header").innerHTML = data;
-
-    // ★ここに移動
-    const btn = document.querySelector('.menu-btn');
-    const menu = document.querySelector('.menu');
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      menu.classList.toggle('show');
-    });
-
-    menu.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
-
-    document.addEventListener('click', () => {
-      menu.classList.remove('show');
-    });
-  });
-</script>
+<script src="common.js"></script>
 </script>
 
 </body>
