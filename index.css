@@ -1,14 +1,24 @@
+@font-face {
+  font-family: "HackGen";
+  src: url("fonts/HackGen-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HackGen";
+  src: url("fonts/HackGen-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   cursor: auto;
 }
 
 body {
-  font-family:
-    "Noto Sans JP",
-    "Yu Gothic",
-    "Meiryo",
-    sans-serif;
+  font-family: "HackGen", monospace;
 }
 
 header {
@@ -56,6 +66,7 @@ main {
   flex-direction: column;
   line-height: 1.1;
   margin-left:40px;
+  color:#FFFFFF;
 }
 
 .site-title .main {
@@ -66,7 +77,7 @@ main {
 
 .site-title .main a{
   cursor:pointer;
-  color: inherit;          /* 親（黒）をそのまま使う */
+  color: inherit;          /* 親（白）をそのまま使う */
   text-decoration: none;   /* 下線を消す */
 }
 
@@ -106,6 +117,7 @@ main {
 }
 
 .menu a {
+  color: white;
   font-weight: bold;
   text-decoration: none;
   letter-spacing: 0.1em;
@@ -113,14 +125,14 @@ main {
 }
 
 .menu a:hover {
-  color: #0014cb;
+  color: #ffeb3b;
 }
 
 .menu-btn {
   font-family: "JetBrains Mono", "Fira Code";
   background: none;
   border: none;
-  color:black;
+  color:#FFFFFF;
 
   pointer-events: none; 
   display: none;
@@ -386,4 +398,3 @@ h3 {
         background-position: 200% 50%;
     }
 } */
-
