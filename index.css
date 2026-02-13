@@ -18,8 +18,8 @@ header {
   right: 0;
   width: 100%;
   height: 70px;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: black;
   z-index: 1000;
 }
 
@@ -27,8 +27,8 @@ footer {
   width: 100%;
   padding: 6px 0;
   text-align: center;
-  background: white;
-  color: black;
+  background: black;
+  color: white;
   font-size: 14px;
 }
 
@@ -56,7 +56,6 @@ main {
   flex-direction: column;
   line-height: 1.1;
   margin-left:40px;
-  color:#FFFFFF;
 }
 
 .site-title .main {
@@ -67,7 +66,7 @@ main {
 
 .site-title .main a{
   cursor:pointer;
-  color: inherit;          /* 親（白）をそのまま使う */
+  color: inherit;          /* 親（黒）をそのまま使う */
   text-decoration: none;   /* 下線を消す */
 }
 
@@ -107,7 +106,6 @@ main {
 }
 
 .menu a {
-  color: white;
   font-weight: bold;
   text-decoration: none;
   letter-spacing: 0.1em;
@@ -115,14 +113,14 @@ main {
 }
 
 .menu a:hover {
-  color: #ffeb3b;
+  color: #0014cb;
 }
 
 .menu-btn {
   font-family: "JetBrains Mono", "Fira Code";
   background: none;
   border: none;
-  color:#FFFFFF;
+  color:black;
 
   pointer-events: none; 
   display: none;
