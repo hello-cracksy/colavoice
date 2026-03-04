@@ -1,3 +1,4 @@
+import warnings
 from . import _utils
 
 class VowelGenerator:
@@ -10,9 +11,24 @@ class VowelGenerator:
     def _pulse(self, freq, t):
         return _utils.bandlimit_pulse(freq, t, cutoff=self.cutoff)
 
-    def _slice(self, wave, start, end=None):
-        s = int(self.sr * start)
-        e = int(self.sr * end) if end is not None else None
+    def _slice(self, wave, start, end=None, overlap=(0.0, 0.0)):
+
+        # overlap処理追加
+        l_overlap, r_overlap = overlap
+    
+        start_pos = start - l_overlap
+        if start_pos < 0:
+            warnings.warn("start - overlap[0] < 0. Clamped to start.", RuntimeWarning)
+    
+        s = max(0, int(self.sr * start_pos))
+    
+        if end is not None:
+            end_pos = end + r_overlap
+            e = int(self.sr * end_pos)
+            e = min(e, len(wave))
+        else:
+            e = None
+    
         return wave[s:e]
 
     def _f(self, wave, key):
@@ -54,12 +70,14 @@ class VowelGenerator:
     def ny_generate(self, freq, t, vowel):
         base = self._pulse(freq, t)
 
-        n = self._f(self._slice(base, 0, 0.04), "n")
-        y = self._f(self._slice(base, 0.04, 0.08), "y")
-        u = self._f(self._slice(base, 0.08, 0.11), "u")
-        v = self._f(self._slice(base, 0.11), vowel)
+        fade_time = 0.04
 
-        return self._norm(_utils.crossfade_add_many([n, y, u, v]))
+        n = self._f(self._slice(base, 0, 0.04, overlap=(0,fade_time)), "n")
+        y = self._f(self._slice(base, 0.04, 0.08, overlap=(fade_time,fade_time)), "y")
+        u = self._f(self._slice(base, 0.08, 0.11, overlap=(fade_time,fade_time)), "u")
+        v = self._f(self._slice(base, 0.11, None, overlap=(fade_time,0)), vowel)
+
+        return self._norm(_utils.crossfade_add_many([n, y, u, v],fade_time=fade_time))
 
     # ===== y =====
     def y_generate(self, freq, t, vowel):
